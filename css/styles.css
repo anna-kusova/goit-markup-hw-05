@@ -465,7 +465,7 @@ transform: translateY(100%); ;
   max-width: 267px;
 }
 
-.footer-social-text {
+.footer-paragraph {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -505,6 +505,53 @@ transform: translateY(100%); ;
   fill: #f4f4fd;
 }
 
+.footer-subscribe {
+  margin-left: auto;
+}
+
+.footer-form {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-input {
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.04em;
+color: #fff;
+background-color: transparent;
+border: 1px solid #fff;
+border-radius: 4px;
+width: 264px;
+height: 40px;
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+padding: 8px 16px;
+transition:  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-input:focus {
+  outline: none;
+   border-color: #31d0aa;
+}
+
+.footer-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: #4d5ae5;
+  width: 165px;
+    height: 40px;
+    border-radius: 4px;
+      padding: 8px 24px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-button:focus {
+  background-color: #31d0aa
+}
+
+
 /* --------------------MODAL--------------------- */
 
 .backdrop {
@@ -513,8 +560,18 @@ transform: translateY(100%); ;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(46, 47, 66, 0.4);
   z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-open {  
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .modal {
@@ -528,6 +585,10 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.backdrop:not(.is-open) .modal {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 .modal-title {
@@ -540,16 +601,30 @@ transform: translate(-50%, -50%);
   text-align: center;
   margin-bottom: 16px;
 }
+
 .modal-close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 24px;
   right: 24px;
     width: 24px;
     height: 24px;
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     background-color: #e7e9fc;
 }
+
+.modal-close-button:focus, .modal-close-button:hover {
+ background-color: #404bbf;
+ border: none;
+}
+
+.modal-close-button:focus .modal-close-button-icon, .modal-close-button:hover .modal-close-button-icon {
+  fill: #fff;
+}
+
 
 .modal-element {
   background-color: transparent;
@@ -619,9 +694,12 @@ padding-left: 38px;
 .modal-check:checked + .modal-check-label > .modal-check-box {
     background-color:  #404bbf; 
     border: none;
+    fill: #fff
 }
 
 .modal-check-label {
+  display: flex;
+    align-items: center;  
     font-size: 12px;
     line-height: 1.16667;
     letter-spacing: 0.04em;
@@ -636,12 +714,41 @@ padding-left: 38px;
 }
 
 .modal-check-box {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 16px;
   height: 16px;
   border-radius: 2px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     margin-right: 8px;
     background-color: transparent;
-    transition: 0.3s background-color cubic-bezier(0.4, 0, 0.2, 1);
+    fill: transparent;
+    transition: 0.3s background-color cubic-bezier(0.4, 0, 0.2, 1), border-color cubic-bezier(0.4, 0, 0.2, 1), fill cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button {
+  font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: #fff;
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+        padding: 16px 32px;
+        width: 169px;
+        height: 56px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+          background: #4d5ae5;
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+position: absolute;
+bottom: 24px;
+transform: translateX(50%);
+}
+.modal-button:hover,
+.modal-button:focus {
+  background-color: #404bbf;
 }
