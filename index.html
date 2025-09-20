@@ -506,10 +506,9 @@
             <label class="modal-input-label" for="name">Name</label>
             <div class="modal-input-wrapper">
               <input
-                class="modal-input"
+                class="modal-input modal-element"
                 type="text"
                 name="name"
-                placeholder="Your name"
                 id="name"
                 required
               />
@@ -522,10 +521,9 @@
             <label class="modal-input-label" for="phone">Phone</label>
             <div class="modal-input-wrapper">
               <input
-                class="modal-input"
+                class="modal-input modal-element"
                 type="tel"
                 name="phone"
-                placeholder="Your phone"
                 id="phone"
               />
               <svg class="modal-input-icon" width="18" height="18">
@@ -537,10 +535,9 @@
             <label class="modal-input-label" for="email">Email</label>
             <div class="modal-input-wrapper">
               <input
-                class="modal-input"
+                class="modal-input modal-element"
                 type="email"
                 name="email"
-                placeholder="Your email"
                 id="email"
                 required
               />
@@ -548,6 +545,17 @@
                 <use href="./images/icons.svg#icon-email"></use>
               </svg>
             </div>
+          </div>
+          <div class="modal-field">
+            <label class="modal-massage-label" for="message">Comment</label>
+            <div class="modal-massage-wrapper">
+            <textarea class="modal-textarea modal-element" name="message" placeholder="Text input" id="message" rows="4"></textarea>
+          </div>
+
+          <div class="modal-field">
+            <input class="modal-check" type="checkbox" name="policy" id="policy">
+            <label class="modal-check-label" for="policy"><span class="modal-check-box"></span>I accept the terms and conditions of the <a href="">Privacy Policy</a>
+            </label>
           </div>
           <button class="modal-button" type="submit">Send</button>
         </form>
